@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 // file imports
 import authRoutes from "./routes/auth.routes.js";
+import messageRoutes from "./routes/message.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 
 const app = express();
@@ -14,6 +15,7 @@ dotenv.config();
 // middleware
 app.use(express.json()); // for parsing application/json (from req.body)
 app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 // app.get("/", (req, res) => {
 //   // root route http://localhost:3000
