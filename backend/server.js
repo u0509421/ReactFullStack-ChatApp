@@ -1,6 +1,7 @@
 // package imports
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 // file imports
 import authRoutes from "./routes/auth.routes.js";
@@ -13,7 +14,9 @@ const PORT = process.env.PORT || 3000;
 dotenv.config();
 
 // middleware
+app.use(cookieParser());
 app.use(express.json()); // for parsing application/json (from req.body)
+
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
